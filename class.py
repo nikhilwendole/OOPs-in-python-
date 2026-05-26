@@ -13,6 +13,7 @@ class Atm:
                          3.Enter 3 to withdraw
                          4.Enter 4 to check balance
                          5.exit
+                         6.select banks
 
 """)
         if user_input=="1":
@@ -23,13 +24,16 @@ class Atm:
         elif user_input=="3":
             self.withdraw()
         elif user_input=="4":
-            self.check_balance() 
+            self.check_balance()
+        elif user_input=="6":
+            print("banks options") 
         else:
             print("bye")
 
     def create_pin(self):
         self.pin=input("enter your pin=")
         print("pin set successfully")
+        self.menu()
     def deposit(self):
         temp=input("Enter your pin")
         if temp==self.pin:
@@ -38,6 +42,8 @@ class Atm:
             print("Deposit amount successfully")
         else:
             print("Invalid pin ,please try again")
+        self.menu()
+
     def withdraw(self):
         temp=input("Enter your pin")
         if temp==self.pin:
@@ -50,16 +56,18 @@ class Atm:
         else:
             print("Insufficient funds")
 
+        self.menu()
+
     def check_balance(self):
         temp=input("Enter the pin")
         if temp==self.pin:
             print(self.balance)
         else:
             print("Invalid pin")
+
+        self.menu()
         
 
         
 sbi=Atm()
-sbi.deposit()
-sbi.withdraw()
-sbi.check_balance()
+hdfc=Atm()
